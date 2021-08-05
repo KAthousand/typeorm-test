@@ -1,0 +1,17 @@
+
+{
+  "compilerOptions": {
+    "target": "es2020",
+    "module": "commonjs",
+    "lib": ["es2020"],
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "outDir": "build",
+    "skipLibCheck": true,
+    "strict": true,
+    "strictPropertyInitialization": false,
+  },
+  "include": ["src", "test"]
+}

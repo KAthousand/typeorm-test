@@ -1,0 +1,18 @@
+
+{
+  "type": "postgres",
+  "host": "localhost",
+  "port": 5432,
+  "username": "kylethousand",
+  "password": "root",
+  "database": "typeorm-test",
+
+  "synchronize": false,
+  "logging": true,
+  "entities": ["build/db/entities/*.js"],
+  "migrations": ["build/db/migrations/*.js"],
+  "cli": {
+    "entitiesDir": "src/db/entities",
+    "migrationsDir": "src/db/migrations"
+  }
+}
