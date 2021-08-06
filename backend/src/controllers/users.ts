@@ -8,7 +8,7 @@ import { comparePass, generateToken, hashPassword } from '../utils/auth';
 import User from '../db/entities/User'
 import {getRepository} from 'typeorm'
 
-// const connection = getConnection();
+
 
 
 //GET ALL

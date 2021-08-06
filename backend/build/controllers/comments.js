@@ -36,7 +36,7 @@ exports.getCommentById = getCommentById;
 const createComment = async (req, res) => {
     const commentRepository = typeorm_1.getRepository(Comment_1.default);
     try {
-        const comment = await commentRepository.create(req.body);
+        const comment = commentRepository.create(req.body);
         const result = await commentRepository.save(comment);
         res.status(200).json(result);
     }
@@ -50,11 +50,12 @@ const updateComment = async (req, res) => {
     const commentRepository = typeorm_1.getRepository(Comment_1.default);
     try {
         const { id } = req.params;
+        const { content } = req.body;
         const comment = await commentRepository.findOne(id);
         if (comment) {
-            const updatedComment = commentRepository.merge(comment, req.body);
-            const result = commentRepository.save(updatedComment);
-            return res.status(200).json(result);
+            comment.content = content || comment.content;
+            await commentRepository.save(comment);
+            return res.status(200).json(comment);
         }
         throw new Error('Comment not found');
     }

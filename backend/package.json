@@ -49,7 +49,7 @@
   "scripts": {
     "clean": "npx del build/",
     "build": "npm run clean && npx tsc",
-    "start" : "node build/index.js"
+    "start": "node build/index.js"
   },
   "author": "",
   "license": "ISC"

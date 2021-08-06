@@ -47,11 +47,13 @@ export const updatePost = async (req: Request, res: Response) => {
   const postRepository = getRepository(Post);
   try {
     const { id } = req.params;
+    const {title, content} = req.body
     const post = await postRepository.findOne(id)
     if (post) {
-      const updatedPost = postRepository.merge(post, req.body)
-      const result = await postRepository.save(updatedPost)
-      return res.status(200).json(result)
+      post.title = title || post.title
+      post.content = content || post.content
+      await postRepository.save(post)
+      return res.status(200).json(post)
     } throw new Error('Post not found');
   } catch (error) {
     return res.status(500).json({ error: error.message })

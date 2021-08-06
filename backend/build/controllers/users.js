@@ -9,7 +9,6 @@ const auth_1 = require("../utils/auth");
 //import entity and typeorm
 const User_1 = __importDefault(require("../db/entities/User"));
 const typeorm_1 = require("typeorm");
-// const connection = getConnection();
 //GET ALL
 const getAllUsers = async (req, res) => {
     const userRepository = typeorm_1.getRepository(User_1.default);
